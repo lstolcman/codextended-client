@@ -31,11 +31,6 @@ bool apply_hooks() {
 	XUNLOCK((void*)0x5083b1, 1);
 	memset((void*)0x5083b1, 0x00, 1);
 
-	// fix bad bahavior on 4k monitors - avoid redundant ChangeDisplaySettingsA
-	XUNLOCK((void*)0x508821, 2);
-	memset((void*)0x508821, 0x90, 1);
-	memset((void*)0x508822, 0x90, 1);
-
 	HMODULE hModule;
 	if (SUCCEEDED(GetModuleHandleEx(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS, (LPCSTR)apply_hooks, &hModule)))
 	{
